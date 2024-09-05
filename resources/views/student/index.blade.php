@@ -31,6 +31,7 @@
                     <th>name</th>
                     <th>mobile</th>
                     <th>rank</th>
+                    <th>operate</th>
                 </tr>
             </thead>
 
@@ -45,6 +46,16 @@
                         <td>{{ $value['name'] }}</td>
                         <td>{{ $value['mobile'] }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
+                        <td>
+                            {{-- 方法一 --}}
+                        {{-- <td><a class="btn btn-warning"href="http://laravel.local:8020/students/{{ $value['id'] }}/edit">edit</a></td> --}}
+                        {{-- 方法二 --}}
+                        {{-- 在helper裡的route('route.name', ['id' => 1]); --}}
+                        <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
+                            class="btn btn-warning">
+                            edit
+                        </a>
+                        </td>
                     </tr>
                 @endforeach
 
