@@ -75,7 +75,8 @@ class StudentController extends Controller
         // $data = Student::find($id);
         // $data = Student::where('欄位名稱', 變數名稱)->first();
         $data = Student::where('id', $id)->first();
-        dd($data);
+        // dd($data);
+        return view('student.edit', ['data' => $data]);
     }
 
     /**
