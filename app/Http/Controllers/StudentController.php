@@ -16,7 +16,16 @@ class StudentController extends Controller
         // foreach (Student::all() as $student) {
         //     echo $student->name;
         // }
-        $data = Student::all();
+        // $data = Student::all();
+
+        // with('phone')代表一次將資料庫內容全部撈出，速度會比較快
+        // 撈資料盡量用get()不用要all()
+        $data = Student::with('phoneRelation')->get();
+        dd($data);
+        // $data = Student::find(1)->phoneRelation->phone;
+        // dd($data);
+        // $data = Student::find(1)->phoneRelation->student_id;
+        // dd($data);
         foreach ($data as $key => $value) {
             $rankText = 1;
             if ($value['id'] > 2) {
