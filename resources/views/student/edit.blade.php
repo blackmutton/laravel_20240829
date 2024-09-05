@@ -13,9 +13,11 @@
 
     <div class="container mt-3">
       <h2>student edit form id = {{ $data['id'] }}</h2>
-        <form action="" method="post">
+      <form action="{{ route('students.update', ['student' => $data['id']]) }}" method="post">
             @csrf
             {{-- csrf input hidden _token --}}
+            @method('put')
+            {{-- _method --}}
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>
                 <input type="name" class="form-control" id="name" placeholder="Enter name" name="name" value="{{ $data['name'] }}">
