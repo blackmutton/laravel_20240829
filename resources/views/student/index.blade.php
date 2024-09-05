@@ -47,14 +47,21 @@
                         <td>{{ $value['mobile'] }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
                         <td>
-                            {{-- 方法一 --}}
-                        {{-- <td><a class="btn btn-warning"href="http://laravel.local:8020/students/{{ $value['id'] }}/edit">edit</a></td> --}}
-                        {{-- 方法二 --}}
-                        {{-- 在helper裡的route('route.name', ['id' => 1]); --}}
-                        <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
-                            class="btn btn-warning">
-                            edit
-                        </a>
+                            <form action="{{ route('students.destroy', ['student' => $value['id']]) }}" method="post">
+                                {{-- edit --}}
+                                {{-- 方法一 --}}
+                                {{-- <td><a class="btn btn-warning"href="http://laravel.local:8020/students/{{ $value['id'] }}/edit">edit</a></td> --}}
+                                {{-- 方法二 --}}
+                                {{-- 在helper裡的route('route.name', ['id' => 1]); --}}
+                                <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
+                                    class="btn btn-warning">
+                                    edit
+                                </a>
+                                @csrf
+                                @method('DELETE')
+                                {{-- del --}}
+                                <button type="submit" class="btn btn-danger">Del</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
