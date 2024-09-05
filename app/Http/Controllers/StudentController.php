@@ -68,6 +68,14 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         //
+        // dd('hello StudentController edit');
+        // dd($id);
+
+        // 兩個都可以
+        // $data = Student::find($id);
+        // $data = Student::where('欄位名稱', 變數名稱)->first();
+        $data = Student::where('id', $id)->first();
+        dd($data);
     }
 
     /**
