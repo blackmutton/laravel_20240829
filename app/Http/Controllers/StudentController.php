@@ -21,8 +21,8 @@ class StudentController extends Controller
 
         // with('phone')代表一次將資料庫內容全部撈出，速度會比較快
         // 撈資料盡量用get()不用要all()
-        $data = Student::with('phoneRelation')->get();
-        // dd($data);
+        $data = Student::with('phoneRelation')->with('hobbiesRelation')->get();
+        dd($data);
         // $data = Student::find(1)->phoneRelation->phone;
         // dd($data);
         // $data = Student::find(1)->phoneRelation->student_id;
