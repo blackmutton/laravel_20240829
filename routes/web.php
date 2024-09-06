@@ -11,3 +11,4 @@ Route::get('/', function () {
 
 
 Route::resource('students', StudentController::class);
+Route::get('students_excel', [StudentController::class, 'excel'])->name('students.excel');
