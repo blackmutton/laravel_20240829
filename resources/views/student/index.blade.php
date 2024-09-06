@@ -32,6 +32,7 @@
                     <th>mobile</th>
                     <th>phone</th>
                     <th>rank</th>
+                    <th>hobby</th>
                     <th>operate</th>
                 </tr>
             </thead>
@@ -48,6 +49,7 @@
                         <td>{{ $value['mobile'] }}</td>
                         <td>{{ $value->phoneRelation->phone }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
+                        <td>{{ $value['hobbies'] }}</td>
                         <td>
                             <form action="{{ route('students.destroy', ['student' => $value['id']]) }}" method="post">
                                 {{-- edit --}}
